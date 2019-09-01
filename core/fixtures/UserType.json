@@ -1,0 +1,23 @@
+[
+  {
+    "model": "core.UserType",
+    "pk": 0,
+    "fields": {
+      "user_type": "admin"
+    }
+  },
+  {
+    "model": "core.UserType",
+    "pk": 1,
+    "fields": {
+      "user_type": "teacher"
+    }
+  },
+  {
+    "model": "core.UserType",
+    "pk": 2,
+    "fields": {
+      "user_type": "student"
+    }
+  }
+]

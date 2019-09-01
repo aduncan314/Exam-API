@@ -1,0 +1,22 @@
+[
+  {
+    "model": "core.Organization",
+    "pk": 0,
+    "fields": {
+      "name": "The Test School",
+      "short_name": "Test School",
+      "org_type": 1,
+      "is_searchable": true
+    }
+  },
+    {
+    "model": "core.Organization",
+    "pk": 1,
+    "fields": {
+      "name": "Other Test School",
+      "short_name": "Test School 2",
+      "org_type": 1,
+      "is_searchable": true
+    }
+  }
+]

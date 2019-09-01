@@ -1,0 +1,16 @@
+[
+  {
+    "model": "teacher.TeacherTitle",
+    "pk": 0,
+    "fields": {
+      "title": "Mr."
+    }
+  },
+    {
+    "model": "teacher.TeacherTitle",
+    "pk": 1,
+    "fields": {
+      "title": "Mrs."
+    }
+  }
+]

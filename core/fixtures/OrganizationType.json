@@ -1,0 +1,23 @@
+[
+  {
+    "model": "core.OrganizationType",
+    "pk": 0,
+    "fields": {
+      "type_name": "High School"
+    }
+  },
+  {
+    "model": "core.OrganizationType",
+    "pk": 1,
+    "fields": {
+      "type_name": "Middle School"
+    }
+  },
+  {
+    "model": "core.OrganizationType",
+    "pk": 2,
+    "fields": {
+      "type_name": "Elementary School"
+    }
+  }
+]
