@@ -1,6 +1,7 @@
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, APIView
 from rest_framework.response import Response
+
 from teacher.models import Teacher
 from teacher.serializers import TeacherSerializer
 
@@ -13,8 +14,8 @@ def teacher_list(request):
     :return:
     """
     if request.method == 'GET':
-        snippets = Teacher.objects.all()
-        serializer = TeacherSerializer(snippets, many=True)
+        teacher = Teacher.objects.all()
+        serializer = TeacherSerializer(teacher, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
@@ -28,21 +29,21 @@ def teacher_list(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def teacher_detail(request, pk):
     try:
-        snippet = Teacher.objects.get(pk=pk)
+        teacher = Teacher.objects.get(pk=pk)
     except Teacher.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = TeacherSerializer(snippet)
+        serializer = TeacherSerializer(teacher)
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = TeacherSerializer(snippet, data=request.data)
+        serializer = TeacherSerializer(teacher, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        snippet.delete()
+        teacher.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
