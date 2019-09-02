@@ -15,6 +15,8 @@ class Organization(models.Model):
     org_type = models.ManyToManyField('core.OrganizationType')
     is_searchable = models.BooleanField()
 
+    # TODO customize pronouns
+
     def __str__(self):
         return self.name if not self.short_name else self.short_name
 

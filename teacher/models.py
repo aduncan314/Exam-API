@@ -6,7 +6,7 @@ from core.models import Organization, CustomUser
 class TeacherTitle(models.Model):
     title = models.CharField(max_length=16)
     # TODO: set default all?
-    visible_to = models.ManyToManyField('core.Organization', blank=True)
+    # visible_to = models.ManyToManyField('core.Organization', blank=True)
 
     def __str__(self):
         return self.title
