@@ -2,24 +2,20 @@ from rest_framework import status
 from rest_framework.decorators import api_view, APIView
 from rest_framework.response import Response
 
-from core.models import CustomUser
+from core.permissions import IsOwnerOrParentOfOwner
 from teacher.models import Teacher
 from teacher.serializers import TeacherSerializer
 
 
-@api_view(['GET', 'POST'])
-def teacher_list(request):
-    """
-    Full list
-    :param request:
-    :return:
-    """
-    if request.method == 'GET':
+class TeacherList(APIView):
+    permission_classes = [IsOwnerOrParentOfOwner]
+
+    def get(self, request):
         teacher = Teacher.objects.all()
         serializer = TeacherSerializer(teacher, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+    def post(self, request):
         serializer = TeacherSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
